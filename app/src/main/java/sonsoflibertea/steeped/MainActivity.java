@@ -1,39 +1,75 @@
 package sonsoflibertea.steeped;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
 
-
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity
+{
+    //Initializes TextViews to display total and tip
+    private TextView timerTextView;
+    private Button goButton;
+    private Button shortTimeButton;
+    private Button longTimeButton;
+//    private EditText et;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    //When this activity is called, onCreate is called
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+
+        //How this activity actually looks is set inside activity_main.xml
         setContentView(R.layout.activity_main);
+//        et = (EditText) findViewById(R.id.time_in);
+
+		/*Set the texts views so they display according to the parameters in result.xml*/
+        timerTextView = (TextView) findViewById(R.id.timer);
+        //Runs the method to use the values calculated in the Main Activity class
+
+        //Initializes button to the parameters in result.xml
+        goButton = (Button) findViewById(R.id.go_button);
+        shortTimeButton = (Button) findViewById(R.id.time_short_bttn);
+        longTimeButton = (Button) findViewById(R.id.time_long_bttn);
+
+
+        goButton.setOnClickListener(new OnClickListener() {
+            @Override
+            //If clicked, call the finish method
+            public void onClick(View v) {
+//                String text = et.getText().toString();
+
+                long countdown = 100; // gets value in seconds
+                countdown = 1000*countdown; // converts to milliseconds
+                Intent intent = new Intent(MainActivity.this, TeaType.class);
+                startActivity(intent);
+                initializeTextViews(countdown);
+
+            }
+        });
+
     }
 
+    private void initializeTextViews(long countdown)
+    {
+        //Sets the texts to display the values
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        new CountDownTimer(countdown, 1000){
+            public void onTick(long millUntilFinish){
+                if(millUntilFinish>60000)
+                timerTextView.setText("Time Remaining: "+ Math.round(millUntilFinish/60000) +
+                        ":"+ (millUntilFinish%60000)/1000);
+                else
+                    timerTextView.setText("Time Remaining: "+(millUntilFinish/1000));
+            }
+            public void onFinish(){
+                timerTextView.setText("Tea is done!");
+            }
+        }.start();
     }
 }

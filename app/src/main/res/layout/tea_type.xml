@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="82dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_white"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_white" />
+
+        <Button
+            android:id="@+id/btn_yellow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_yellow" />
+
+        <Button
+            android:id="@+id/btn_green"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_green" />
+
+        <Button
+            android:id="@+id/btn_oolong"
+            android:layout_width="233dp"
+            android:layout_height="fill_parent"
+            android:text="@string/btn_oolong" />
+
+        <Button
+            android:id="@+id/btn_black"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_black" />
+
+        <Button
+            android:id="@+id/btn_herbal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_herbal" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_TeaType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:text="@string/tv_TeaType"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+</RelativeLayout>
