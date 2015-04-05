@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity
+public class unusedMainActivity extends Activity
 {
     //Initializes TextViews to display total and tip
     private TextView timerTextView;
@@ -46,7 +46,7 @@ public class MainActivity extends Activity
 
                 long countdown = 100; // gets value in seconds
                 countdown = 1000*countdown; // converts to milliseconds
-                Intent intent = new Intent(MainActivity.this, TeaType.class);
+                Intent intent = new Intent(unusedMainActivity.this, TeaType.class);
                 startActivity(intent);
                 initializeTextViews(countdown);
 
