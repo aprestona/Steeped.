@@ -13,4 +13,7 @@
     <string name="btn_black">Black Tea</string>
     <string name="btn_herbal">Herbal Tea</string>
     <string name="tv_TeaType">Please Select Type of Tea</string>
+    <string name="title_activity_brew_type">BrewType</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
