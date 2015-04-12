@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.content.Intent;
 
 public class TeaType extends Activity implements OnClickListener {
     // This is the backend of the tea_type layout for the selection of tea type activity
@@ -32,7 +33,7 @@ public class TeaType extends Activity implements OnClickListener {
         //How the activity actually looks is inside main.xml, inside the layout folder
         setContentView(R.layout.tea_type);
 
-        //The buttons have parameters corresponding to the IDs in Main.xml
+        //The buttons have parameters corresponding to the IDs in tea_type.xml
 
         tvTeaType = (TextView) findViewById(R.id.tv_TeaType);
 

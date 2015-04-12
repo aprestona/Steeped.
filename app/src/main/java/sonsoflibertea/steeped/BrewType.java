@@ -33,7 +33,7 @@ public class BrewType extends Activity implements OnClickListener {
 
         tv_BrewType = (TextView) findViewById(R.id.tv_BrewType);
 
-        buttonInfusor = (Button) findViewById(R.id.btn_infusor);
+        buttonInfusor = (Button) findViewById(R.id.btn_infuser);
         buttonKettle = (Button) findViewById(R.id.btn_kettle);
         buttonPitcher = (Button) findViewById(R.id.btn_pitcher);
 
@@ -60,7 +60,7 @@ public class BrewType extends Activity implements OnClickListener {
         //The switch statements grab the id values of the button pressed and calculates the tip accordingly
         switch (v.getId()) {
 
-            case R.id.btn_infusor: {
+            case R.id.btn_infuser: {
                 brewType = "Infusor";
 
                 break;

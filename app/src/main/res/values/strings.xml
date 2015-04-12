@@ -15,9 +15,9 @@
     <string name="tv_TeaType">Please Select Type of Tea</string>
     <string name="title_activity_brew_type">BrewType</string>
     <string name="tv_sd">Choose a desire strength</string>
-    <string name="buttonsd_1">1</string>
-    <string name="buttonsd_2"></string>
-    <string name="buttonsd_3">3</string>
+    <string name="buttonsd_light">1</string>
+    <string name="buttonsd_normal"></string>
+    <string name="buttonsd_strong">3</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>
