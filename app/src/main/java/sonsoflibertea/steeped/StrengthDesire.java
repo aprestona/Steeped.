@@ -10,13 +10,13 @@ import android.widget.TextView;
 /**
  * Created by a on 2015/4/6.
  */
-public class StrengthDesire extends Activity implements View.OnClickListener {
+public class StrengthDesire extends Activity implements OnClickListener {
     public static final String TAG_STRENGTHDESIRE = "type";
 
     private TextView tv_sd;
-    private Button buttonsd_1;
-    private Button buttonsd_2;
-    private Button buttonsd_3;
+    private Button buttonsd_light;
+    private Button buttonsd_normal;
+    private Button buttonsd_strong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,9 @@ public class StrengthDesire extends Activity implements View.OnClickListener {
 
         tv_sd = (TextView) findViewById(R.id.tv_sd);
 
-        buttonsd_1 = (Button) findViewById(R.id.sd_1);
-        buttonsd_2 = (Button) findViewById(R.id.sd_2);
-        buttonsd_3 = (Button) findViewById(R.id.sd_3);
+        buttonsd_light = (Button) findViewById(R.id.sd_light);
+        buttonsd_normal = (Button) findViewById(R.id.sd_normal);
+        buttonsd_strong = (Button) findViewById(R.id.sd_strong);
 
 
 		/*The buttons now have onClickListeners set, a method/function of the button class
@@ -39,9 +39,9 @@ public class StrengthDesire extends Activity implements View.OnClickListener {
 		 * will go to the results page.
 		 * */
 
-        buttonsd_1.setOnClickListener(this);
-        buttonsd_2.setOnClickListener(this);
-        buttonsd_3.setOnClickListener(this);
+        buttonsd_light.setOnClickListener(this);
+        buttonsd_normal.setOnClickListener(this);
+        buttonsd_strong.setOnClickListener(this);
 
     }
 
@@ -56,18 +56,18 @@ public class StrengthDesire extends Activity implements View.OnClickListener {
         //The switch statements grab the id values of the button pressed
         switch (v.getId()) {
 
-            case R.id.sd_1: {
-                StrengthDesire = "1";
+            case R.id.sd_light: {
+                StrengthDesire = "Light";
 
                 break;
             }
-            case R.id.sb_2: {
-                StrengthDesire = "2";
+            case R.id.sd_normal: {
+                StrengthDesire = "Normal";
 
                 break;
             }
-            case R.id.sd_3: {
-                StrengthDesire = "3";
+            case R.id.sd_strong: {
+                StrengthDesire = "Strong";
 
                 break;
             }
