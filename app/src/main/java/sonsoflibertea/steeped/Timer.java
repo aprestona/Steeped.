@@ -30,6 +30,7 @@ public class Timer extends ActionBarActivity {
 
         btnStart = (Button)findViewById(R.id.btnStart);
         btnStop = (Button)findViewById(R.id.btnStop);
+        btnStop.setVisibility(View.GONE);
         textViewTime = (TextView)findViewById(R.id.textViewTime);
         textViewTime.setText("00:03:00");
 
@@ -37,12 +38,16 @@ public class Timer extends ActionBarActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timer.start();
+                btnStart.setVisibility(View.GONE);
+                btnStop.setVisibility(View.VISIBLE);
             }
         });
 
         btnStop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timer.cancel();
+                btnStart.setVisibility(View.VISIBLE);
+                btnStop.setVisibility(View.GONE);
             }
         });
     }
