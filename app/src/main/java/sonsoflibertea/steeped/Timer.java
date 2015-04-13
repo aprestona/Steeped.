@@ -3,15 +3,17 @@ package sonsoflibertea.steeped;
 /**
  * Created by james_000 on 4/4/2015.
  */
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.util.concurrent.TimeUnit;
 
 @TargetApi(Build.VERSION_CODES.GINGERBREAD)

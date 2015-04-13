@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/brewbackgroud"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <TextView
@@ -11,9 +11,9 @@
         android:layout_width="fill_parent"
         android:layout_height="90sp"
         android:gravity="center"
+        android:text="Choose a brew type"
         android:textColor="#FF0000"
-        android:textSize="30sp"
-        android:text="Choose a brew type"/>
+        android:textSize="30sp"/>
 
     <Button
         android:id="@+id/btn_infuser"

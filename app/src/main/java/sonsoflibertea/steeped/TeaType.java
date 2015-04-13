@@ -5,12 +5,12 @@ package sonsoflibertea.steeped;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.Intent;
 
 public class TeaType extends Activity implements OnClickListener {
     // This is the backend of the tea_type layout for the selection of tea type activity
@@ -103,7 +103,7 @@ public class TeaType extends Activity implements OnClickListener {
             }
         }
         // This passes the correct arguments to the next screen and launches the next activity
-//      launchNextActivity();
+      launchNextActivity(teaType,time2steep);
     }
     private void launchNextActivity(String teaType, int time2steep)
     {
@@ -112,17 +112,17 @@ public class TeaType extends Activity implements OnClickListener {
 		 * the startActivity method. Basic intents take two arguments, the current class(.java) and the class(.java) that the app will move to
 		 *  The line below initializes an Intent named resultActivity and passes in (Main.this,Result.class) much like the this-> pointer in C++,
 		 *  the this keyword in java is used by classes to reference themselves*/
-//        Intent nextActivity = new Intent(TeaType.this, Next.class);
+        Intent nextActivity = new Intent(TeaType.this, BrewType.class);
 
 		/*Since this method is private, if we want the Result Activity/class to access it's members (the strings TAG_TIP and TAG_GRAND_TOTAL),
 		 *we can "push" members from the Main Acivity/class to Result, much like how a friend function can "pull" private members from objects
 		*/
-//        nextActivity.putExtra(TAG_TEATYPE, teaType);
-//        nextActivity.putExtra(TAG_TIME, time2steep);
+        nextActivity.putExtra(TAG_TEATYPE, teaType);
+        nextActivity.putExtra(TAG_TIME, time2steep);
 
 
 //        Launches the new activity
-//        startActivity(nextActivity);
+        startActivity(nextActivity);
     }
 }
 
