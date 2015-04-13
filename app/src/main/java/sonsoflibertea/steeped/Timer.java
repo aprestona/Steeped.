@@ -6,20 +6,17 @@ package sonsoflibertea.steeped;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
-@TargetApi(Build.VERSION_CODES.GINGERBREAD)
-@SuppressLint("NewApi")
-
-public class Timer extends ActionBarActivity {
+public class Timer extends Activity {
 
     Button btnStart;
     Button btnStop;
@@ -54,16 +51,12 @@ public class Timer extends ActionBarActivity {
         });
     }
 
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-    @SuppressLint("NewApi")
     public class CounterClass extends CountDownTimer {
 
         public CounterClass(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
 
-        @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-        @SuppressLint("NewApi")
         public void onTick(long millisUntilFinished) {
             long millis = millisUntilFinished;
             String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
