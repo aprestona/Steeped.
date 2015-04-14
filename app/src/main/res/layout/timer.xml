@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="40dp"
         android:text="Start"/>
 
     <Button
@@ -20,8 +20,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="67dp"
-        android:text="Stop"/>
+        android:layout_marginRight="40dp"
+        android:text="Restart"/>
+
+    <Button
+        android:id="@+id/btnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="145dp"
+        android:text="Pause"/>
 
     <TextView
         android:id="@+id/textViewTime"

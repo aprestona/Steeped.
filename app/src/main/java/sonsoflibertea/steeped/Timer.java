@@ -4,10 +4,7 @@ package sonsoflibertea.steeped;
  * Created by james_000 on 4/4/2015.
  */
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -20,6 +17,7 @@ public class Timer extends Activity {
 
     Button btnStart;
     Button btnStop;
+    Button btnPause;
     TextView textViewTime;
 
     @Override
@@ -29,7 +27,9 @@ public class Timer extends Activity {
 
         btnStart = (Button)findViewById(R.id.btnStart);
         btnStop = (Button)findViewById(R.id.btnStop);
+        btnPause = (Button)findViewById(R.id.btnPause);
         btnStop.setVisibility(View.GONE);
+        btnPause.setVisibility(View.GONE);
         textViewTime = (TextView)findViewById(R.id.textViewTime);
         textViewTime.setText("00:03:00");
 
@@ -39,6 +39,7 @@ public class Timer extends Activity {
                 timer.start();
                 btnStart.setVisibility(View.GONE);
                 btnStop.setVisibility(View.VISIBLE);
+                btnPause.setVisibility(View.VISIBLE);
             }
         });
 
@@ -47,6 +48,14 @@ public class Timer extends Activity {
                 timer.cancel();
                 btnStart.setVisibility(View.VISIBLE);
                 btnStop.setVisibility(View.GONE);
+                btnPause.setVisibility(View.GONE);
+            }
+        });
+
+        btnPause.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                timer.cancel();
+                btnStart.setVisibility(View.VISIBLE);
             }
         });
     }
