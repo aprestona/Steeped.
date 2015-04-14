@@ -5,6 +5,7 @@ package sonsoflibertea.steeped;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 public class BrewType extends Activity implements OnClickListener {
     // This is the backend of the tea_type layout for the selection of tea type activity
     public static final String TAG_BREWTYPE = "type";
+    public static final String TAG_TIME = "time";
 
 
     private TextView tv_BrewType;
@@ -55,6 +57,7 @@ public class BrewType extends Activity implements OnClickListener {
 	 * that called the onClick is automatically fed in*/
     public void onClick(View v) {
         String brewType = ""; // Type of tea entered.. not sure if going to be used yet..
+        int time2steep = 0;
 
 
         //The switch statements grab the id values of the button pressed and calculates the tip accordingly
@@ -62,16 +65,19 @@ public class BrewType extends Activity implements OnClickListener {
 
             case R.id.btn_infuser: {
                 brewType = "Infusor";
+                time2steep = 120;
 
                 break;
             }
             case R.id.btn_kettle: {
                 brewType = "Kettle";
+                time2steep = 120;
 
                 break;
             }
             case R.id.btn_pitcher: {
                 brewType = "Pitcher";
+                time2steep = 120;
 
                 break;
             }
@@ -81,26 +87,26 @@ public class BrewType extends Activity implements OnClickListener {
             }
         }
         // This passes the correct arguments to the next screen and launches the next activity
-//      launchNextActivity();
+      launchNextActivity(brewType, time2steep);
     }
-    private void launchNextActivity(String brewType, int time2steep)
+    private void launchNextActivity(String brewType, int time2steep )
     {
 
 		/*The intent class represents an action is used to "load" activities into a variable so they can be passed in and launched from
 		 * the startActivity method. Basic intents take two arguments, the current class(.java) and the class(.java) that the app will move to
 		 *  The line below initializes an Intent named resultActivity and passes in (Main.this,Result.class) much like the this-> pointer in C++,
 		 *  the this keyword in java is used by classes to reference themselves*/
-//        Intent nextActivity = new Intent(TeaType.this, Next.class);
+        Intent nextActivity = new Intent(BrewType.this, StrengthDesire.class);
 
 		/*Since this method is private, if we want the Result Activity/class to access it's members (the strings TAG_TIP and TAG_GRAND_TOTAL),
 		 *we can "push" members from the Main Acivity/class to Result, much like how a friend function can "pull" private members from objects
 		*/
-//        nextActivity.putExtra(TAG_TEATYPE, teaType);
-//        nextActivity.putExtra(TAG_TIME, time2steep);
+        nextActivity.putExtra(TAG_BREWTYPE, brewType);
+       nextActivity.putExtra(TAG_TIME, time2steep);
 
 
 //        Launches the new activity
-//        startActivity(nextActivity);
+        startActivity(nextActivity);
     }
 }
 

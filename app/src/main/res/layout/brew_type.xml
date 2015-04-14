@@ -20,21 +20,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Infusor"/>
+        android:text="@string/btn_infusor"/>
 
     <Button
         android:id="@+id/btn_kettle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Kettle"/>
+        android:text="@string/btn_kettle"/>
 
     <Button
         android:id="@+id/btn_pitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Pitcher"/>
+        android:text="@string/btn_pot"/>
 
     
 </LinearLayout>
