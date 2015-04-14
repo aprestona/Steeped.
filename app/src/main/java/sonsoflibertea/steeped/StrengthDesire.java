@@ -1,6 +1,7 @@
 package sonsoflibertea.steeped;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -77,10 +78,19 @@ public class StrengthDesire extends Activity implements OnClickListener {
             }
         }
         // This passes the correct arguments to the next screen and launches the next activity
-//      launchNextActivity();
+      launchNextActivity();
     }
-    private void launchNextActivity(String StrengthDesire, int time2steep)
+    private void launchNextActivity()
     {
 
+		/*The intent class represents an action is used to "load" activities into a variable so they can be passed in and launched from
+		 * the startActivity method. Basic intents take two arguments, the current class(.java) and the class(.java) that the app will move to
+		 *  The line below initializes an Intent named resultActivity and passes in (Main.this,Result.class) much like the this-> pointer in C++,
+		 *  the this keyword in java is used by classes to reference themselves*/
+        Intent nextActivity = new Intent(StrengthDesire.this, Timer.class);
+
+
+//        Launches the new activity
+        startActivity(nextActivity);
     }
 }

@@ -29,5 +29,8 @@
     <string name="buttonsd_normal"></string>
     <string name="buttonsd_strong">3</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="textViewTime"></string>
+    <string name="btnStop">Stop</string>
+    <string name="btnStart">Start</string>
+
 </resources>

@@ -8,30 +8,30 @@
 
     <TextView
         android:id="@+id/tv_BrewType"
-        android:layout_width="fill_parent"
+        android:layout_width="233dp"
         android:layout_height="90sp"
         android:gravity="center"
         android:text="Choose a brew type"
-        android:textColor="#FF0000"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/btn_infuser"
-        android:layout_width="wrap_content"
+        android:layout_width="233dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/btn_infusor"/>
 
     <Button
         android:id="@+id/btn_kettle"
-        android:layout_width="wrap_content"
+        android:layout_width="233dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/btn_kettle"/>
 
     <Button
         android:id="@+id/btn_pitcher"
-        android:layout_width="wrap_content"
+        android:layout_width="233dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/btn_pot"/>
