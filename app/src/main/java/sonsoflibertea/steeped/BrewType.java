@@ -5,7 +5,9 @@ package sonsoflibertea.steeped;
  */
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,6 +29,7 @@ public class BrewType extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         //The super keyword is used to refer to the parent class in java
         super.onCreate(savedInstanceState);
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
 
         //How the activity actually looks is inside main.xml, inside the layout folder
         setContentView(R.layout.brew_type);
