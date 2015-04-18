@@ -19,7 +19,7 @@ public class BrewType extends Activity implements OnClickListener {
 
 
     private TextView tv_BrewType;
-    private Button buttonInfusor;
+    private Button buttonInfusor; // creating buttons
     private Button buttonKettle;
     private Button buttonPitcher;
 

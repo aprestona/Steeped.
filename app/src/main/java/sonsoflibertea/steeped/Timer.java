@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
-public class Timer extends Activity {
+public class Timer extends Activity { // timer inherits all of activity
 
     Button btnStart;
     Button btnStop;
