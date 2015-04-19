@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+
 
 public class TeaType extends Activity implements OnClickListener {
     // This is the backend of the tea_type layout for the selection of tea type activity
@@ -64,6 +68,7 @@ public class TeaType extends Activity implements OnClickListener {
     public void onClick(View v) {
         String teaType = ""; // Type of tea entered.. not sure if going to be used yet..
         int time2steep = 0; // Time for tea to steep in seconds
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
 
         //The switch statements grab the id values of the button pressed and calculates the tip accordingly
         switch (v.getId()) {
@@ -103,7 +108,8 @@ public class TeaType extends Activity implements OnClickListener {
             }
         }
         // This passes the correct arguments to the next screen and launches the next activity
-      launchNextActivity(teaType,time2steep);
+        prefs.edit().putInt("com.example.app.base_time", time2steep).apply();
+        launchNextActivity(teaType,time2steep);
     }
     private void launchNextActivity(String teaType, int time2steep)
     {

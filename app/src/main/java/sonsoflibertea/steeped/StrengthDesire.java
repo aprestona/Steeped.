@@ -1,7 +1,9 @@
 package sonsoflibertea.steeped;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,24 +53,25 @@ public class StrengthDesire extends Activity implements OnClickListener {
 	 * as buttons are children of the view class, buttons can polymorphically be passed in. The button
 	 * that called the onClick is automatically fed in*/
     public void onClick(View v) {
-        String StrengthDesire = ""; // Type of strength desired.. not sure if going to be used yet..
+        float StrengthDesire = 0; // Type of strength desired.. not sure if going to be used yet..
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
 
 
         //The switch statements grab the id values of the button pressed
         switch (v.getId()) {
 
             case R.id.sd_light: {
-                StrengthDesire = "Light";
+                StrengthDesire = 0.75f;
 
                 break;
             }
             case R.id.sd_normal: {
-                StrengthDesire = "Normal";
+                StrengthDesire = 1.0f;
 
                 break;
             }
             case R.id.sd_strong: {
-                StrengthDesire = "Strong";
+                StrengthDesire = 1.25f;
 
                 break;
             }
@@ -78,7 +81,8 @@ public class StrengthDesire extends Activity implements OnClickListener {
             }
         }
         // This passes the correct arguments to the next screen and launches the next activity
-      launchNextActivity();
+        prefs.edit().putFloat("com.example.app.strength", StrengthDesire).apply();
+        launchNextActivity();
     }
     private void launchNextActivity()
     {

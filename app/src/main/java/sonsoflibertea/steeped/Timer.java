@@ -5,6 +5,8 @@ package sonsoflibertea.steeped;
  */
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -31,9 +33,14 @@ public class Timer extends Activity { // timer inherits all of activity
         btnStop.setVisibility(View.GONE);
         btnPause.setVisibility(View.GONE);
         textViewTime = (TextView)findViewById(R.id.textViewTime);
-        textViewTime.setText("00:03:00");
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
+        int time = prefs.getInt("com.example.app.base_time", 0);
+        float strength = prefs.getFloat("com.example.app.strength", 0);
+        time *=strength;
 
-        final CounterClass timer = new CounterClass(180000, 1000);
+//        textViewTime.setText(time);
+
+        final CounterClass timer = new CounterClass(time*1000, 1000);
         btnStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timer.start();
@@ -55,6 +62,7 @@ public class Timer extends Activity { // timer inherits all of activity
         btnPause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timer.cancel();
+
                 btnStart.setVisibility(View.VISIBLE);
             }
         });
