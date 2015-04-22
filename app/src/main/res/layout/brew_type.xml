@@ -16,18 +16,30 @@
         android:layout_alignParentStart="true"
         android:weightSum="1">
 
-    <Button
+        <TextView
+            android:id="@+id/tv_BrewType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Choose a brew type"
+            android:textSize="30sp"
+            android:theme="@style/AppTheme"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
             android:id="@+id/btn_infuser"
             android:layout_width="390dp"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
 
             android:text="@string/btn_infusor"
-            android:textColor="#FFFFFF"
-            android:background="#F000"
-            android:layout_marginTop="40dp"
+        android:layout_marginTop="40dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="0.92" />
+            android:layout_weight="0.92"
+        style="@style/AppTheme"
+        android:textSize="20sp" />
 
 
     <Button
@@ -37,8 +49,8 @@
         android:layout_gravity="center"
         android:text="@string/btn_kettle"
         android:layout_marginBottom="5dp"
-        android:background="#F000"
-        android:textColor="#FFFFFF"/>
+        style="@style/AppTheme"
+        android:textSize="20sp" />
 
 
     <Button
@@ -48,28 +60,12 @@
         android:layout_gravity="center"
 
         android:text="@string/btn_pot"
-        android:background="#F000"
-        android:textColor="#FFFFFF"
-        android:layout_weight="1.24" />
-
-
-
+        android:layout_weight="1.24"
+        style="@style/AppTheme"
+        android:textSize="20sp" />
 
 
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/tv_BrewType"
-        android:layout_width="371dp"
-        android:layout_height="40sp"
-        android:gravity="center"
-        android:text="Choose a brew type"
-        android:textSize="30sp"
-        android:textColor="#000000"
-        android:layout_alignParentEnd="false" />
-
-
 
 
 </RelativeLayout>
