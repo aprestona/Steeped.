@@ -88,8 +88,8 @@
                 android:text="@string/btn_oolong"
                 android:layout_weight="1"
                 android:layout_margin="3dp"
-                android:textSize="20sp"
-                style="@style/AppTheme" />
+                style="@style/AppTheme"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
