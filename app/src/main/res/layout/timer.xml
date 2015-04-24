@@ -32,6 +32,15 @@
         android:layout_marginRight="145dp"
         android:text="Pause"/>
 
+    <Button
+        android:id="@+id/btnResume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resume"
+        android:layout_below="@+id/btnPause"
+        android:layout_alignLeft="@+id/btnPause"
+        android:layout_alignStart="@+id/btnPause" />
+
     <TextView
         android:id="@+id/textViewTime"
         android:layout_width="wrap_content"

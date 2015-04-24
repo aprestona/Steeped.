@@ -12,14 +12,15 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.concurrent.TimeUnit;
 
 public class Timer extends Activity { // timer inherits all of activity
     public static long timeSet;
+
     Button btnStart;
     Button btnStop;
     Button btnPause;
+    Button btnResume;
     TextView textViewTime;
 
     @Override
@@ -30,8 +31,10 @@ public class Timer extends Activity { // timer inherits all of activity
         btnStart = (Button)findViewById(R.id.btnStart);
         btnStop = (Button)findViewById(R.id.btnStop);
         btnPause = (Button)findViewById(R.id.btnPause);
+        btnPause = (Button)findViewById(R.id.btnResume);
         btnStop.setVisibility(View.GONE);
         btnPause.setVisibility(View.GONE);
+        btnResume.setVisibility(View.GONE);
         textViewTime = (TextView)findViewById(R.id.textViewTime);
         SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
         int time = prefs.getInt("com.example.app.base_time", 0);
@@ -62,21 +65,45 @@ public class Timer extends Activity { // timer inherits all of activity
 
         btnPause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                btnResume.setVisibility(View.VISIBLE);
+                long remainingTime = timer.remainingTime();
+                putRemainingTime(remainingTime);
                 timer.cancel();
-
                 btnStart.setVisibility(View.VISIBLE);
+            }
+        });
+
+        btnResume.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                btnResume.setVisibility(View.GONE);
+                long remainingTime = getRemainingTime();
+                final CounterClass timer = new CounterClass(remainingTime, 1000);
             }
         });
     }
 
+    public long getRemainingTime() {
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
+        long remainingTime = prefs.getLong("com.example.app.remainingTime", 0);
+        return remainingTime;
+    }
+
+    public void putRemainingTime(long millis) {
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
+        prefs.edit().putLong("com.example.app.base_time", millis).apply();
+    }
+
     public class CounterClass extends CountDownTimer {
+
+        public long mPauseTimeRemaining;
+
         public CounterClass(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
 
         public void onTick(long millisUntilFinished) {
             long millis = millisUntilFinished;
-            timeSet = millis/1000;
+            mPauseTimeRemaining = millisUntilFinished;
             String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
                     TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
                     TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
@@ -87,5 +114,10 @@ public class Timer extends Activity { // timer inherits all of activity
         public void onFinish() {
             textViewTime.setText("Completed.");
         }
+
+        public long remainingTime() {
+            return mPauseTimeRemaining;
+        }
+
     }
 }
