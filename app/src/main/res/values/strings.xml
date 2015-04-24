@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">Steeped</string>
-    <string name="enter_time_text">Choose a Timer </string>
-    <string name="timer">Time Remaining:</string>
-    <string name="go_button">Go</string>
-    <string name="time_short">Short (30 Seconds)</string>
-    <string name="time_long">Short (2 Minutes)</string>
-    <string name="action_settings">Settings</string>
 
     <string name="btn_white">White Tea</string>
     <string name="btn_yellow">Yellow Tea</string>
@@ -24,10 +18,10 @@
     <string name="title_activity_tea_type">TeaType</string>
     <string name="title_activity_timer">Timer</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="tv_sd">Choose a desire strength</string>
-    <string name="buttonsd_light">1</string>
-    <string name="buttonsd_normal"></string>
-    <string name="buttonsd_strong">3</string>
+    <string name="tv_sd">Choose Select Strength Desired</string>
+    <string name="buttonsd_light">Light</string>
+    <string name="buttonsd_normal">Normal</string>
+    <string name="buttonsd_strong">Strong</string>
 
     <string name="textViewTime"></string>
     <string name="btnStop">Stop</string>

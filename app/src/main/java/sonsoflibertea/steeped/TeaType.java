@@ -21,7 +21,7 @@ public class TeaType extends Activity implements OnClickListener {
     public static final String TAG_TEATYPE = "type";
     public static final String TAG_TIME = "time";
 
-    private TextView tvTeaType;
+    private TextView tvTeaType; // Initialize all the variable names for the text view and the buttons
     private Button buttonW;
     private Button buttonY;
     private Button buttonG;
@@ -37,11 +37,9 @@ public class TeaType extends Activity implements OnClickListener {
         //How the activity actually looks is inside main.xml, inside the layout folder
         setContentView(R.layout.tea_type);
 
-        //The buttons have parameters corresponding to the IDs in tea_type.xml
+        tvTeaType = (TextView) findViewById(R.id.tv_TeaType); // set variable to tv
 
-        tvTeaType = (TextView) findViewById(R.id.tv_TeaType);
-
-        buttonW = (Button) findViewById(R.id.btn_white);
+        buttonW = (Button) findViewById(R.id.btn_white); // set the variables to the buttons by finding their ids
         buttonY = (Button) findViewById(R.id.btn_yellow);
         buttonG = (Button) findViewById(R.id.btn_green);
         buttonO = (Button) findViewById(R.id.btn_oolong);
@@ -53,7 +51,7 @@ public class TeaType extends Activity implements OnClickListener {
 		 * will go to the results page.
 		 * */
 
-        buttonW.setOnClickListener(this);
+        buttonW.setOnClickListener(this); // set listeners for a button press
         buttonY.setOnClickListener(this);
         buttonG.setOnClickListener(this);
         buttonO.setOnClickListener(this);
@@ -73,32 +71,32 @@ public class TeaType extends Activity implements OnClickListener {
         //The switch statements grab the id values of the button pressed and calculates the tip accordingly
         switch (v.getId()) {
 
-            case R.id.btn_white: {
+            case R.id.btn_white: { // white button pressed
                 teaType = "White";
                 time2steep = 120;
                 break;
             }
-            case R.id.btn_yellow: {
+            case R.id.btn_yellow: { // yellow button pressed
                 teaType = "Yellow";
                 time2steep = 120;
                 break;
             }
-            case R.id.btn_green: {
+            case R.id.btn_green: { // green button pressed
                 teaType = "Green";
                 time2steep = 120;
                 break;
             }
-            case R.id.btn_oolong: {
+            case R.id.btn_oolong: { // oolong button pressed
                 teaType = "Oolong";
                 time2steep = 200;
                 break;
             }
-            case R.id.btn_black: {
+            case R.id.btn_black: { // black button pressed
                 teaType = "Black";
                 time2steep = 200;
                 break;
             }
-            case R.id.btn_herbal: {
+            case R.id.btn_herbal: { // herbal button pressed
                 teaType = "Herbal";
                 time2steep = 320;
                 break;
@@ -108,7 +106,7 @@ public class TeaType extends Activity implements OnClickListener {
             }
         }
         // This passes the correct arguments to the next screen and launches the next activity
-        prefs.edit().putInt("com.example.app.base_time", time2steep).apply();
+        prefs.edit().putInt("com.example.app.base_time", time2steep).apply(); // set prefs and put in the base time
         launchNextActivity(teaType,time2steep);
     }
     private void launchNextActivity(String teaType, int time2steep)

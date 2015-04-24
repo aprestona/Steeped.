@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
 
 public class Timer extends Activity { // timer inherits all of activity
-
+    public static long timeSet;
     Button btnStart;
     Button btnStop;
     Button btnPause;
@@ -37,10 +37,11 @@ public class Timer extends Activity { // timer inherits all of activity
         int time = prefs.getInt("com.example.app.base_time", 0);
         float strength = prefs.getFloat("com.example.app.strength", 0);
         time *=strength;
+        timeSet = time;
 
 //        textViewTime.setText(time);
 
-        final CounterClass timer = new CounterClass(time*1000, 1000);
+        final CounterClass timer = new CounterClass(timeSet*1000, 1000);
         btnStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timer.start();
@@ -69,13 +70,13 @@ public class Timer extends Activity { // timer inherits all of activity
     }
 
     public class CounterClass extends CountDownTimer {
-
         public CounterClass(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
 
         public void onTick(long millisUntilFinished) {
             long millis = millisUntilFinished;
+            timeSet = millis/1000;
             String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
                     TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
                     TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));

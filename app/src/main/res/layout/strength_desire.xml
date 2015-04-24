@@ -5,36 +5,60 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/tv_sd"
-        android:layout_width="233dp"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:gravity="center"
-        android:text="Choose a desire strength"
-        android:textColor="#343434"
-        android:textSize="32sp" />
+        android:layout_gravity="top"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/sd_light"
-        android:layout_width="233dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="1"/>
+        <TextView
+            android:id="@+id/tv_sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tv_sd"
+            android:textSize="32sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/AppTheme" />
 
-    <Button
-        android:id="@+id/sd_normal"
-        android:layout_width="233dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="2"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/sd_strong"
-        android:layout_width="233dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="3"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:id="@+id/sd_light"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:text="@string/buttonsd_light"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            style="@style/AppTheme" />
+
+        <Button
+            android:id="@+id/sd_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/buttonsd_normal"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            style="@style/AppTheme" />
+
+        <Button
+            android:id="@+id/sd_strong"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/buttonsd_strong"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            style="@style/AppTheme" />
+    </LinearLayout>
 
 
 </LinearLayout>
