@@ -19,11 +19,7 @@ package="sonsoflibertea.steeped">
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-    <activity
-        android:name=".BrewType"
-        android:label="@string/title_activity_brew_type" >
-    </activity>
-    <activity
+        <activity
         android:name=".StrengthDesire"
         android:label="@string/title_activity_strength_desire" >
     </activity>

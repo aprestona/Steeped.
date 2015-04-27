@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/typelayout"
+    android:id="@+id/tea_type_layout"
     style="@style/AppTheme">
 
     <LinearLayout
@@ -39,7 +39,8 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="20sp"
-                style="@style/AppTheme" />
+                style="@style/AppTheme"
+                android:background="@drawable/white" />
 
             <Button
                 android:id="@+id/btn_yellow"
@@ -49,7 +50,8 @@
                 android:textSize="20sp"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
+                android:layout_height="fill_parent"
+                android:background="@drawable/yellow" />
 
         </LinearLayout>
 
@@ -71,7 +73,8 @@
                 android:typeface="normal"
                 android:layout_weight="1"
                 android:layout_margin="1dp"
-                style="@style/AppTheme" />
+                style="@style/AppTheme"
+                android:background="@drawable/green" />
 
             <Button
                 android:id="@+id/btn_oolong"
@@ -81,7 +84,8 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 style="@style/AppTheme"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:background="@drawable/oolong" />
         </LinearLayout>
 
         <LinearLayout
@@ -98,7 +102,8 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="20sp"
-                style="@style/AppTheme" />
+                style="@style/AppTheme"
+                android:background="@drawable/black" />
 
             <Button
                 android:id="@+id/btn_herbal"
@@ -108,7 +113,8 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="20sp"
-                style="@style/AppTheme" />
+                style="@style/AppTheme"
+                android:background="@drawable/herbal" />
         </LinearLayout>
 
     </LinearLayout>

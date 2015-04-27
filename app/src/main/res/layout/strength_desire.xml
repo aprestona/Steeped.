@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/stength_desire_layout"
     >
 
     <LinearLayout
@@ -39,7 +40,9 @@
             android:layout_weight="1"
             android:textSize="28sp"
             style="@style/AppTheme"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:background="@drawable/light"
+            android:adjustViewBounds="false" />
 
         <Button
             android:id="@+id/sd_normal"
@@ -50,7 +53,8 @@
             android:layout_weight="1"
             android:textSize="28sp"
             style="@style/AppTheme"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:background="@drawable/medium" />
 
         <Button
             android:id="@+id/sd_strong"
@@ -60,7 +64,8 @@
             android:layout_weight="1"
             android:textSize="28sp"
             style="@style/AppTheme"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:background="@drawable/heavy" />
     </LinearLayout>
 
 

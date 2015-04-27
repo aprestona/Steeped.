@@ -34,6 +34,8 @@ public class Timer extends Activity { // timer inherits all of activity
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +74,6 @@ public class Timer extends Activity { // timer inherits all of activity
                 if(!isRunning) // Timer not yet running  so start it
                 {
                     timer.start();
-                    btnReStart.setText("Restart");
-                    btnReStart.setBackground(replaypic);
                     btnReStart.setEnabled(false);
                     btnStop.setEnabled(true);
                 }
@@ -93,6 +93,8 @@ public class Timer extends Activity { // timer inherits all of activity
             public void onClick(View v) {
 
                 timer.cancel();
+                btnReStart.setText("Restart");
+                btnReStart.setBackground(replaypic);
                 btnReStart.setEnabled(true);
                 btnStop.setEnabled(false);
                 textViewTime.setText("Steeped.");
