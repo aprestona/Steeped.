@@ -14,7 +14,6 @@ import android.widget.TextView;
  * Created by a on 2015/4/6.
  */
 public class StrengthDesire extends Activity implements OnClickListener {
-    public static final String TAG_STRENGTHDESIRE = "type";
 
     private TextView tv_sd;
     private Button buttonsd_light;
@@ -59,6 +58,7 @@ public class StrengthDesire extends Activity implements OnClickListener {
 
         //The switch statements grab the id values of the button pressed
         switch (v.getId()) {
+
 
             case R.id.sd_light: {
                 StrengthDesire = 0.75f;

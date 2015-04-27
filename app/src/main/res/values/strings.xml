@@ -12,19 +12,20 @@
     <string name="btn_kettle">Kettle</string>
     <string name="btn_pot">Pot</string>
 
-    <string name="tv_TeaType">Please Select Type of Tea</string>
+    <string name="tv_TeaType">Select Type of Tea</string>
     <string name="title_activity_brew_type">BrewType</string>
     <string name="title_activity_strength_desire">StrengthDesire</string>
     <string name="title_activity_tea_type">TeaType</string>
     <string name="title_activity_timer">Timer</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="tv_sd">Choose Select Strength Desired</string>
+    <string name="tv_sd">Select Strength Desired</string>
     <string name="buttonsd_light">Light</string>
     <string name="buttonsd_normal">Normal</string>
     <string name="buttonsd_strong">Strong</string>
 
     <string name="textViewTime"></string>
     <string name="btnStop">Stop</string>
-    <string name="btnStart">Start</string>
+    <string name="btnReStart">Start</string>
+    <string name="tv_temp">Temperature:</string>
 
 </resources>

@@ -5,49 +5,63 @@
     android:layout_height="fill_parent"
     tools:context=".Timer">
 
-    <Button
-        android:id="@+id/btnStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="40dp"
-        android:text="Start"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="40dp"
-        android:text="Restart"/>
+        <TextView
+            android:id="@+id/textViewTime"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="75sp"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_margin="2dp" />
 
-    <Button
-        android:id="@+id/btnPause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="145dp"
-        android:text="Pause"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
 
-    <Button
-        android:id="@+id/btnResume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Resume"
-        android:layout_below="@+id/btnPause"
-        android:layout_alignLeft="@+id/btnPause"
-        android:layout_alignStart="@+id/btnPause" />
+            <Button
+                android:id="@+id/btnReStart"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnReStart"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:textSize="30sp"
+                android:background="@drawable/ic_play"
+                style="@style/AppTheme" />
 
-    <TextView
-        android:id="@+id/textViewTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnStop"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
-        android:textSize="25sp"/>
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnStop"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:textSize="30sp"
+                android:background="@drawable/ic_stop"
+                style="@style/AppTheme" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tv_temp"
+            android:id="@+id/tv_temp"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:layout_gravity="center"
+            android:textAlignment="gravity"
+            android:textSize="35sp" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -17,9 +17,6 @@ import android.content.SharedPreferences;
 
 
 public class TeaType extends Activity implements OnClickListener {
-    // This is the backend of the tea_type layout for the selection of tea type activity
-    public static final String TAG_TEATYPE = "type";
-    public static final String TAG_TIME = "time";
 
     private TextView tvTeaType; // Initialize all the variable names for the text view and the buttons
     private Button buttonW;
@@ -66,6 +63,8 @@ public class TeaType extends Activity implements OnClickListener {
     public void onClick(View v) {
         String teaType = ""; // Type of tea entered.. not sure if going to be used yet..
         int time2steep = 0; // Time for tea to steep in seconds
+        int tempF = 0;
+        int tempC = 0;
         SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
 
         //The switch statements grab the id values of the button pressed and calculates the tip accordingly
@@ -74,31 +73,43 @@ public class TeaType extends Activity implements OnClickListener {
             case R.id.btn_white: { // white button pressed
                 teaType = "White";
                 time2steep = 120;
+                tempF = 170;
+                tempC = 77;
                 break;
             }
             case R.id.btn_yellow: { // yellow button pressed
                 teaType = "Yellow";
                 time2steep = 120;
+                tempF = 165;
+                tempC = 74;
                 break;
             }
             case R.id.btn_green: { // green button pressed
                 teaType = "Green";
                 time2steep = 120;
+                tempF = 175;
+                tempC = 80;
                 break;
             }
             case R.id.btn_oolong: { // oolong button pressed
                 teaType = "Oolong";
                 time2steep = 200;
+                tempF = 190;
+                tempC = 88;
                 break;
             }
             case R.id.btn_black: { // black button pressed
                 teaType = "Black";
                 time2steep = 200;
+                tempF = 200;
+                tempC = 93;
                 break;
             }
             case R.id.btn_herbal: { // herbal button pressed
                 teaType = "Herbal";
                 time2steep = 320;
+                tempF = 208;
+                tempC = 98;
                 break;
             }
             default: {
@@ -107,23 +118,18 @@ public class TeaType extends Activity implements OnClickListener {
         }
         // This passes the correct arguments to the next screen and launches the next activity
         prefs.edit().putInt("com.example.app.base_time", time2steep).apply(); // set prefs and put in the base time
-        launchNextActivity(teaType,time2steep);
+        prefs.edit().putInt("com.example.app.tempF",tempF).apply();
+        prefs.edit().putInt("com.example.app.tempC",tempC).apply();
+        launchNextActivity();
     }
-    private void launchNextActivity(String teaType, int time2steep)
+    private void launchNextActivity()
     {
 
 		/*The intent class represents an action is used to "load" activities into a variable so they can be passed in and launched from
 		 * the startActivity method. Basic intents take two arguments, the current class(.java) and the class(.java) that the app will move to
 		 *  The line below initializes an Intent named resultActivity and passes in (Main.this,Result.class) much like the this-> pointer in C++,
 		 *  the this keyword in java is used by classes to reference themselves*/
-        Intent nextActivity = new Intent(TeaType.this, BrewType.class);
-
-		/*Since this method is private, if we want the Result Activity/class to access it's members (the strings TAG_TIP and TAG_GRAND_TOTAL),
-		 *we can "push" members from the Main Acivity/class to Result, much like how a friend function can "pull" private members from objects
-		*/
-        nextActivity.putExtra(TAG_TEATYPE, teaType);
-        nextActivity.putExtra(TAG_TIME, time2steep);
-
+        Intent nextActivity = new Intent(TeaType.this, StrengthDesire.class);
 
 //        Launches the new activity
         startActivity(nextActivity);

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="sonsoflibertea.steeped">
+ <uses-permission android:name="android.permission.VIBRATE"/>
 
-<application
-    android:allowBackup="true"
+
+    <application
+        android:largeHeap="true"
+        android:allowBackup="true"
     android:label="@string/app_name"
     android:theme="@style/Theme.AppCompat"
     android:icon="@mipmap/ic_launcher" >
