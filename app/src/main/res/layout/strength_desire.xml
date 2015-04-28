@@ -31,41 +31,25 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent">
 
-        <Button
-            android:id="@+id/sd_light"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_vertical"
-            android:text="@string/buttonsd_light"
-            android:layout_weight="1"
-            android:textSize="28sp"
-            style="@style/AppTheme"
-            android:layout_margin="3dp"
-            android:background="@drawable/light"
-            android:adjustViewBounds="false" />
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textProgress"
+            android:layout_gravity="center_horizontal" />
 
         <Button
-            android:id="@+id/sd_normal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:id="@+id/continueButton"
             android:layout_gravity="center_horizontal"
-            android:text="@string/buttonsd_normal"
-            android:layout_weight="1"
-            android:textSize="28sp"
-            style="@style/AppTheme"
-            android:layout_margin="3dp"
-            android:background="@drawable/medium" />
-
-        <Button
-            android:id="@+id/sd_strong"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="@string/buttonsd_strong"
-            android:layout_weight="1"
-            android:textSize="28sp"
-            style="@style/AppTheme"
-            android:layout_margin="3dp"
-            android:background="@drawable/heavy" />
+            android:onClick="continueButtonClk"/>
     </LinearLayout>
 
 
