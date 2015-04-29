@@ -6,6 +6,7 @@ package sonsoflibertea.steeped;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.media.Ringtone;
@@ -32,10 +33,6 @@ public class Timer extends Activity { // timer inherits all of activity
 
     boolean isRunning = false;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,17 +47,15 @@ public class Timer extends Activity { // timer inherits all of activity
         replaypic = getResources().getDrawable(R.drawable.ic_replay);
 
 
-
-
         SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
         int time = prefs.getInt("com.example.app.base_time", 0);
         float strength = prefs.getFloat("com.example.app.strength", 0);
         int tempF = prefs.getInt("com.example.app.tempF", 0);
         int tempC = prefs.getInt("com.example.app.tempC",0);
-        time *=strength;
+        time *= strength;
         timeSet = time;
         tv_temp.setText(tempC + " \u00B0C / " + tempF + " \u00B0F");
-
+        System.out.println(strength);
 
 
 
@@ -101,6 +96,34 @@ public class Timer extends Activity { // timer inherits all of activity
 
             }
         });
+    }
+
+    public void setFavButtonClk(View v)                                                             // Ran when setFavButton pressed
+    {
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for
+                Context.MODE_PRIVATE);
+
+        int time = prefs.getInt("com.example.app.base_time", 0);                                    // Gets current settings
+        float strength = prefs.getFloat("com.example.app.strength", 0);
+        int tempF = prefs.getInt("com.example.app.tempF", 0);
+        int tempC = prefs.getInt("com.example.app.tempC", 0);
+        int favSet = 1;
+
+        prefs.edit().putInt("com.example.app.favTime", time).apply();                               // Sets favorite setting in shared prefs
+        prefs.edit().putFloat("com.example.app.favStrength", strength).apply();
+        prefs.edit().putInt("com.example.app.favTempF", tempF).apply();
+        prefs.edit().putInt("com.example.app.favTempC", tempC).apply();
+
+        prefs.edit().putInt("com.example.app.isFavSet", favSet).apply();                            // Allows favorite button in first activity to be seen
+
+        float nstrength = prefs.getFloat("com.example.app.favStrength", 0);
+    }
+
+    public void moreTeaButtonClk(View v)                                                         // Ran when setMoreTeaButton pressed
+    {
+        Intent nextActivity = new Intent(Timer.this, TeaType.class);
+                                                                                                    // Launches teatype activity
+        startActivity(nextActivity);
     }
 
     public class CounterClass extends CountDownTimer {

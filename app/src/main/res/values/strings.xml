@@ -22,6 +22,7 @@
     <string name="buttonsd_light">Light</string>
     <string name="buttonsd_normal">Normal</string>
     <string name="buttonsd_strong">Strong</string>
+    <string name="buttonsd_bitter">Bitter</string>
 
     <string name="textViewTime"></string>
     <string name="btnStop">Stop</string>

@@ -22,6 +22,9 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
     private TextView textProgress;                                                                  // Declare seekbar progress text
     private Button continueButton;                                                                  // Declare continue button
     float strengthDesire;
+    private Button buttonsd_light;                                                                  // Declaring strength buttons
+    private Button buttonsd_normal;
+    private Button buttonsd_strong;
                                                                                                     // This was found on the internet...
     @Override
     protected void onDestroy() {
@@ -54,20 +57,30 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
         bar.setOnSeekBarChangeListener(this);                                                       // Set seekbar listener.
         textProgress = (TextView)findViewById(R.id.textProgress);                                   // Make progress text
         continueButton = (Button)findViewById(R.id.continueButton);                                 // Make continue button
+        buttonsd_light = (Button) findViewById(R.id.sd_light);                                      // Making strength buttons
+        buttonsd_normal = (Button) findViewById(R.id.sd_normal);
+        buttonsd_strong = (Button) findViewById(R.id.sd_strong);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if (progress <= 33) {
-            textProgress.setText("Mild");                                                           // Changes text to mild if slider within lower 1/3
+        if (progress <= 20) {
+            textProgress.setText("Light");                                                           // Changes text to mild if slider within lower 1/3
         }
-        if (progress > 33 && progress <= 66) {
-            textProgress.setText("Medium");                                                         // Changes text to medium if slider within middle 1/3
+        if (progress > 20 && progress <= 40) {
+            textProgress.setText("Mild");                                                         // Changes text to medium if slider within middle 1/3
         }
-        if (progress > 66 && progress <= 100) {
+        if (progress > 40 && progress <= 60) {
+            textProgress.setText("Normal");                                                         // Changes text to medium if slider within middle 1/3
+        }
+        if (progress > 60 && progress <= 80) {
             textProgress.setText("Strong");                                                         // Changes text to medium if slider within upper 1/3
         }
-        strengthDesire = 0.75f + (progress/200);                                                    // Adjusts strengthDesire variable based on seekbar progress
+        if (progress > 80 && progress <= 100) {
+            textProgress.setText("Bitter");                                                         // Changes text to medium if slider within middle 1/3
+        }
+        float temp = (float) progress;
+        strengthDesire = 0.75f + temp/200;                                                           // Adjusts strengthDesire variable based on seekbar progress
     }
 
     public void onStartTrackingTouch(SeekBar seekBar) {                                             // Required for some reason
@@ -75,6 +88,33 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
 
     public void onStopTrackingTouch(SeekBar seekBar) {
         seekBar.setSecondaryProgress(seekBar.getProgress());                                        // Set the shade of the previous value.
+    }
+
+    public void lightBtnClk(View v)                                                                 // Ran when lightBtnClk pressed
+    {
+        strengthDesire = 0.75f;
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
+                Context.MODE_PRIVATE);
+        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();                  // This passes the correct arguments to the next screen and launches the next activity
+        launchNextActivity();
+    }
+
+    public void mediumBtnClk(View v)                                                                // Ran when mediumBtnClk pressed
+    {
+        strengthDesire = 1.0f;
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
+                Context.MODE_PRIVATE);
+        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();                  // This passes the correct arguments to the next screen and launches the next activity
+        launchNextActivity();
+    }
+
+    public void bitterBtnClk(View v)                                                                // Ran when strongBtnClk pressed
+    {
+        strengthDesire = 1.25f;
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
+                Context.MODE_PRIVATE);
+        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();                  // This passes the correct arguments to the next screen and launches the next activity
+        launchNextActivity();
     }
 
     public void continueButtonClk(View v)                                                           // Ran when continueButton pressed

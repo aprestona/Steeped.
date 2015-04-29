@@ -26,6 +26,7 @@ public class TeaType extends Activity implements OnClickListener {
     private Button buttonO;
     private Button buttonB;
     private Button buttonH;
+    private Button buttonFav;
 
 
     @Override
@@ -65,6 +66,7 @@ public class TeaType extends Activity implements OnClickListener {
         buttonO = (Button) findViewById(R.id.btn_oolong);
         buttonB = (Button) findViewById(R.id.btn_black);
         buttonH = (Button) findViewById(R.id.btn_herbal);
+        buttonFav = (Button) findViewById(R.id.favButton);
 
 		/*The buttons now have onClickListeners set, a method/function of the button class
 		 * to start a new activity/intent when pressed. In this case, pressing a button
@@ -77,6 +79,15 @@ public class TeaType extends Activity implements OnClickListener {
         buttonO.setOnClickListener(this);
         buttonB.setOnClickListener(this);
         buttonH.setOnClickListener(this);
+
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
+        int isFavSet = prefs.getInt("com.example.app.isFavSet", 0);
+        if (isFavSet == 1){
+            buttonFav.setEnabled(true);
+        }
+        else {
+            buttonFav.setEnabled(false);
+        }
     }
 
     @Override
@@ -145,6 +156,27 @@ public class TeaType extends Activity implements OnClickListener {
         prefs.edit().putInt("com.example.app.tempC",tempC).apply();
         launchNextActivity();
     }
+
+    public void favButtonClk(View v)                                                                // Ran when favButton pressed
+    {
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
+                Context.MODE_PRIVATE);
+
+        int time = prefs.getInt("com.example.app.favTime", 0);                                    // Gets current settings
+        float strength = prefs.getFloat("com.example.app.favStrength", 0);
+        int tempF = prefs.getInt("com.example.app.favTempF", 0);
+        int tempC = prefs.getInt("com.example.app.favTempC", 0);
+
+        prefs.edit().putInt("com.example.app.base_time", time).apply();                               // Sets settings based on favorite settings and skips to timer activity
+        prefs.edit().putFloat("com.example.app.strength", strength).apply();
+        prefs.edit().putInt("com.example.app.tempF", tempF).apply();
+        prefs.edit().putInt("com.example.app.tempC", tempC).apply();
+
+        Intent nextActivity = new Intent(TeaType.this, Timer.class);
+                                                                                                    // Launches timer activity
+        startActivity(nextActivity);
+    }
+
     private void launchNextActivity()
     {
 

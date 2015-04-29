@@ -10,6 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:text="Set These Settings as Your Favorite"
+            android:id="@+id/setFavButton"
+            android:layout_gravity="center_horizontal"
+            android:onClick="setFavButtonClk"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More Tea?"
+            android:id="@+id/moreTeaButton"
+            android:onClick="moreTeaButtonClk" />
+
         <TextView
             android:id="@+id/textViewTime"
             android:gravity="center"
