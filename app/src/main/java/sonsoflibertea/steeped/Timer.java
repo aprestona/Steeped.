@@ -30,6 +30,9 @@ public class Timer extends Activity { // timer inherits all of activity
     TextView tv_temp;
     Vibrator v;
     Drawable replaypic;
+    CounterClass timer;
+    Button btnMoreTea;
+    Button btnSetFav;
 
     boolean isRunning = false;
 
@@ -40,11 +43,17 @@ public class Timer extends Activity { // timer inherits all of activity
 
         btnReStart = (Button)findViewById(R.id.btnReStart);
         btnStop = (Button)findViewById(R.id.btnStop);
-        btnStop.setEnabled(false);
+        btnMoreTea = (Button)findViewById(R.id.btnMoreTea);
+        btnSetFav = (Button)findViewById(R.id.btnSetFav);
         textViewTime = (TextView)findViewById(R.id.textViewTime);
         tv_temp = (TextView)findViewById(R.id.tv_temp);
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         replaypic = getResources().getDrawable(R.drawable.ic_replay);
+
+        btnStop.setEnabled(false);
+        btnMoreTea.setEnabled(false);
+        btnMoreTea.setVisibility(View.INVISIBLE);
+
 
 
         SharedPreferences prefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
@@ -54,13 +63,16 @@ public class Timer extends Activity { // timer inherits all of activity
         int tempC = prefs.getInt("com.example.app.tempC",0);
         time *= strength;
         timeSet = time;
+        int min = (time/60);
+        int sec = time - 60*min;
+        textViewTime.setText("00:0"+min+":"+sec);
         tv_temp.setText(tempC + " \u00B0C / " + tempF + " \u00B0F");
-        System.out.println(strength);
+
 
 
 
         // making a timer object!
-        final CounterClass timer = new CounterClass(timeSet*1000, 1000);
+        timer = new CounterClass(timeSet*1000, 1000);
 
 
         btnReStart.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +82,8 @@ public class Timer extends Activity { // timer inherits all of activity
                 {
                     timer.start();
                     btnReStart.setEnabled(false);
+                    btnMoreTea.setEnabled(false);
+                    btnMoreTea.setVisibility(View.INVISIBLE);
                     btnStop.setEnabled(true);
                 }
 
@@ -78,6 +92,8 @@ public class Timer extends Activity { // timer inherits all of activity
                     timer.cancel();
                     timer.start();
                     btnReStart.setEnabled(false);
+                    btnMoreTea.setEnabled(false);
+                    btnMoreTea.setVisibility(View.INVISIBLE);
                     btnStop.setEnabled(true);
                 }
 
@@ -92,6 +108,8 @@ public class Timer extends Activity { // timer inherits all of activity
                 btnReStart.setBackground(replaypic);
                 btnReStart.setEnabled(true);
                 btnStop.setEnabled(false);
+                btnMoreTea.setEnabled(true);
+                btnMoreTea.setVisibility(View.VISIBLE);
                 textViewTime.setText("Steeped.");
 
             }
@@ -122,7 +140,8 @@ public class Timer extends Activity { // timer inherits all of activity
     public void moreTeaButtonClk(View v)                                                         // Ran when setMoreTeaButton pressed
     {
         Intent nextActivity = new Intent(Timer.this, TeaType.class);
-                                                                                                    // Launches teatype activity
+        timer.cancel();                                                                             // Launches teatype activity
+        btnMoreTea.setEnabled(false);
         startActivity(nextActivity);
     }
 
@@ -147,6 +166,8 @@ public class Timer extends Activity { // timer inherits all of activity
             long[] pattern = {0,200,200,200,200,500};
             btnReStart.setEnabled(true);
             btnStop.setEnabled(false);
+            btnMoreTea.setEnabled(true);
+            btnMoreTea.setVisibility(View.VISIBLE);
             if(v.hasVibrator()) // if there is a hardware vibrator
             {
                 v.vibrate(pattern, -1); // vibrate using the above pattern.

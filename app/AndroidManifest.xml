@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sonsoflibertea.steeped" >
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-sdk android:minSdkVersion="16" />
     <application
         android:largeHeap="true"
         android:allowBackup="true"

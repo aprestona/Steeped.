@@ -10,22 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="186dp"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Set These Settings as Your Favorite"
-            android:id="@+id/setFavButton"
-            android:layout_gravity="center_horizontal"
-            android:onClick="setFavButtonClk"/>
+            android:layout_weight=".5">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="More Tea?"
-            android:id="@+id/moreTeaButton"
-            android:onClick="moreTeaButtonClk" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="More Tea?"
+                android:id="@+id/btnMoreTea"
+                android:onClick="moreTeaButtonClk"
+                android:layout_gravity="center_vertical|right"
+                style="@style/AppTheme"
+                android:textSize="20sp"
+                android:background="@drawable/more_tea"
+                android:layout_marginLeft="10dp" />
+
+            <Button
+                style="@style/AppTheme"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="Set?"
+                android:id="@+id/btnSetFav"
+                android:onClick="setFavButtonClk"
+                android:background="@drawable/yellow_star"
+                android:layout_gravity="center_vertical|right"
+                android:textSize="20sp"
+                android:layout_marginLeft="200dp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textViewTime"
@@ -79,6 +93,7 @@
             android:layout_gravity="center"
             android:textAlignment="gravity"
             android:textSize="35sp" />
+
     </LinearLayout>
 
 </RelativeLayout>
