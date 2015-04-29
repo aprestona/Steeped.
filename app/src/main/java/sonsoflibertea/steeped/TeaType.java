@@ -6,6 +6,7 @@ package sonsoflibertea.steeped;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,8 +29,7 @@ public class TeaType extends Activity implements OnClickListener {
     private Button buttonH;
     private Button buttonFav;
 
-
-    @Override
+        @Override
     protected void onDestroy() {
         super.onDestroy();
 
@@ -57,6 +57,8 @@ public class TeaType extends Activity implements OnClickListener {
 
         //How the activity actually looks is inside main.xml, inside the layout folder
         setContentView(R.layout.tea_type);
+
+        ;
 
         tvTeaType = (TextView) findViewById(R.id.tv_TeaType); // set variable to tv
 

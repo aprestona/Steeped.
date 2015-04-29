@@ -81,6 +81,9 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
         }
         float temp = (float) progress;
         strengthDesire = 0.75f + temp/200;                                                           // Adjusts strengthDesire variable based on seekbar progress
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
+                Context.MODE_PRIVATE);
+        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();
     }
 
     public void onStartTrackingTouch(SeekBar seekBar) {                                             // Required for some reason

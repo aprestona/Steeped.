@@ -62,7 +62,7 @@
             android:id="@+id/sd_strong"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="@string/buttonsd_bitter"
+            android:text="@string/buttonsd_strong"
             android:layout_weight="1"
             android:textSize="28sp"
             style="@style/AppTheme"
@@ -83,12 +83,13 @@
             android:layout_gravity="center_horizontal" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Continue"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="Steep"
             android:id="@+id/continueButton"
             android:layout_gravity="center_horizontal"
-            android:onClick="continueButtonClk"/>
+            android:onClick="continueButtonClk"
+            android:background="@drawable/ic_fast_forward_black_48dp" />
     </LinearLayout>
 
 

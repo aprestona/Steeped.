@@ -19,6 +19,8 @@ import android.support.annotation.DrawableRes;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.concurrent.TimeUnit;
 
 public class Timer extends Activity { // timer inherits all of activity
@@ -33,13 +35,15 @@ public class Timer extends Activity { // timer inherits all of activity
     CounterClass timer;
     Button btnMoreTea;
     Button btnSetFav;
-
+    Context context;
     boolean isRunning = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.timer);
+        context = getApplicationContext();
+
 
         btnReStart = (Button)findViewById(R.id.btnReStart);
         btnStop = (Button)findViewById(R.id.btnStop);
@@ -49,6 +53,7 @@ public class Timer extends Activity { // timer inherits all of activity
         tv_temp = (TextView)findViewById(R.id.tv_temp);
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         replaypic = getResources().getDrawable(R.drawable.ic_replay);
+
 
         btnStop.setEnabled(false);
         btnMoreTea.setEnabled(false);
@@ -118,6 +123,9 @@ public class Timer extends Activity { // timer inherits all of activity
 
     public void setFavButtonClk(View v)                                                             // Ran when setFavButton pressed
     {
+        btnSetFav.setEnabled(false);
+        Toast.makeText(context, "Favorite Set", Toast.LENGTH_SHORT).show();
+
         SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for
                 Context.MODE_PRIVATE);
 
@@ -168,6 +176,7 @@ public class Timer extends Activity { // timer inherits all of activity
             btnStop.setEnabled(false);
             btnMoreTea.setEnabled(true);
             btnMoreTea.setVisibility(View.VISIBLE);
+            Toast.makeText(context, "Steeped.", Toast.LENGTH_LONG).show();
             if(v.hasVibrator()) // if there is a hardware vibrator
             {
                 v.vibrate(pattern, -1); // vibrate using the above pattern.
