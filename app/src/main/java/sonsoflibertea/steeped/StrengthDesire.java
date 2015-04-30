@@ -25,6 +25,7 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
     private Button buttonsd_light;                                                                  // Declaring strength buttons
     private Button buttonsd_normal;
     private Button buttonsd_strong;
+    float temp;
                                                                                                     // This was found on the internet...
     @Override
     protected void onDestroy() {
@@ -79,11 +80,7 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
         if (progress > 80 && progress <= 100) {
             textProgress.setText("Bitter");                                                         // Changes text to medium if slider within middle 1/3
         }
-        float temp = (float) progress;
-        strengthDesire = 0.75f + temp/200;                                                           // Adjusts strengthDesire variable based on seekbar progress
-        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
-                Context.MODE_PRIVATE);
-        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();
+        temp = (float) progress;
     }
 
     public void onStartTrackingTouch(SeekBar seekBar) {                                             // Required for some reason
@@ -122,9 +119,9 @@ public class StrengthDesire extends Activity implements SeekBar.OnSeekBarChangeL
 
     public void continueButtonClk(View v)                                                           // Ran when continueButton pressed
     {
-        SharedPreferences prefs = this.getSharedPreferences("com.example.app",                      // Used for sharing data between activities
-                Context.MODE_PRIVATE);
-        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();                  // This passes the correct arguments to the next screen and launches the next activity
+        strengthDesire = 0.75f + temp/200;                                                           // Adjusts strengthDesire variable based on seekbar progress
+        SharedPreferences prefs = this.getSharedPreferences("com.example.app",Context.MODE_PRIVATE);// Used for sharing data between activities
+        prefs.edit().putFloat("com.example.app.strength", strengthDesire).apply();
         launchNextActivity();
     }
 

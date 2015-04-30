@@ -70,7 +70,11 @@ public class Timer extends Activity { // timer inherits all of activity
         timeSet = time;
         int min = (time/60);
         int sec = time - 60*min;
-        textViewTime.setText("00:0"+min+":"+sec);
+        if(sec<10)
+            textViewTime.setText("00:0"+min+":0"+sec);
+        else if(sec>=10)
+            textViewTime.setText("00:0"+min+":"+sec);
+
         tv_temp.setText(tempC + " \u00B0C / " + tempF + " \u00B0F");
 
 
@@ -165,7 +169,7 @@ public class Timer extends Activity { // timer inherits all of activity
             String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
                     TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
                     TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-            System.out.println(hms);
+    //        System.out.println(hms);
             textViewTime.setText(hms);
         }
 
